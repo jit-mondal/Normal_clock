@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clock</title>
+    <link rel="stylesheet" href="src/output.css">
 </head>
 <body>
-    
+    <div class="flex justify-center items-center h-screen bg-gray-800">
+<div class="bg-amber-800 h-40 w-11/12 md:w-80 flex items-center justify-center shadow-2xl rounded-2xl border-2 border-white">
+    <h2 class="text-3xl font-bold p-4 text-white" id="clock">00:00:00</h2>
+</div> 
+</div> 
+<audio src="ticking-clock.mp3" preload="auto"></audio>
+<script>
+  setInterval(()=>{
+      const Element=document.querySelector("#clock")
+      const sound=document.querySelector('audio')
+    const time =new Date()
+    Options ={
+     timeZone: 'Asia/Kolkata',
+     hour12: true
+    }
+    Element.textContent=time.toLocaleTimeString('en-Us',Options)
+    sound.play()
+  },1000
+)
+    // console.log(Element)
+</script>
 </body>
 </html>
